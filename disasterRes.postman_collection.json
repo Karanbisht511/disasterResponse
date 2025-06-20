@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "ecb82f23-eb84-4e05-bcc5-c780a31f4ee3",
+		"name": "disasterRes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14414006"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/disasters/<disaster-id>/verify-image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/path/to/your/image.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:3000/disasters/<disaster-id>/verify-image",
+				"description": "Generated from cURL: curl -X POST http://localhost:3000/disasters/<disaster-id>/verify-image \\\n  -F \"image=@/path/to/your/image.jpg\""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources?lat=36.5748441&lon=139.2394179",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources?lat=36.5748441&lon=139.2394179",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"disasters",
+						"228a21c6-7dd1-4e72-8090-81ed50f0784c",
+						"resources"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "36.5748441"
+						},
+						{
+							"key": "lon",
+							"value": "139.2394179"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources?lat=36.5748441&lon=139.2394179'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"disaster_id\": \"228a21c6-7dd1-4e72-8090-81ed50f0784c\",\n \"name\": \"Red Cross Shelter\", \n \"location_name\": \"Lower East Side, NYC\", \n \"type\": \"shelter\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources",
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/disasters/228a21c6-7dd1-4e72-8090-81ed50f0784c/resources' \\\n--header 'Content-Type: application/json' \\\n--data '{ \"disaster_id\": \"228a21c6-7dd1-4e72-8090-81ed50f0784c\",\n \"name\": \"Red Cross Shelter\", \n \"location_name\": \"Lower East Side, NYC\", \n \"type\": \"shelter\" }'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"title\": \"NYC Flood\", \n\"location_name\": \"Manhattan, NYC\", \n\"description\": \"Heavy flooding in Manhattan\", \n\"tags\": [\"flood\", \"urgent\"], \n\"owner_id\": \"netrunnerX\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/disasters",
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/disasters' \\\n--header 'Content-Type: application/json' \\\n--data '{ \"title\": \"NYC Flood\", \n\"location_name\": \"Manhattan, NYC\", \n\"description\": \"Heavy flooding in Manhattan\", \n\"tags\": [\"flood\", \"urgent\"], \n\"owner_id\": \"netrunnerX\" }'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/geocode",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"text\":\"A magnitude 6.1 earthquake struck off Japan's southeastern Nemuro Peninsula, with no tsunami warning issued, according to the JMA. Meanwhile, Hong Kong Airlines cut flights to southern Japan amid a viral manga-based rumour predicting a July 2025 megaquake.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/geocode",
+				"description": "Generated from cURL: curl --location 'http://localhost:3000/geocode' \\\n--header 'Content-Type: application/json' \\\n--data '{\r\n  \"text\":\"A magnitude 6.1 earthquake struck off Japan'\\''s southeastern Nemuro Peninsula, with no tsunami warning issued, according to the JMA. Meanwhile, Hong Kong Airlines cut flights to southern Japan amid a viral manga-based rumour predicting a July 2025 megaquake.\"\r\n}\r\n'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/<disaster-id>",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-mock-user",
+						"value": "netrunnerX"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Updated NYC Flood\",\n    \"description\": \"Updated description for the NYC flood.\",\n    \"tags\": [\"flood\", \"updated\"]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/disasters/<disaster-id>",
+				"description": "Generated from cURL: curl -X PUT http://localhost:3000/disasters/<disaster-id> \\\n  -H \"Content-Type: application/json\" \\\n  -H \"x-mock-user: netrunnerX\" \\\n  -d '{\n    \"title\": \"Updated NYC Flood\",\n    \"description\": \"Updated description for the NYC flood.\",\n    \"tags\": [\"flood\", \"updated\"]\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/<disaster-id>",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-mock-user",
+						"value": "netrunnerX"
+					}
+				],
+				"url": "http://localhost:3000/disasters/<disaster-id>",
+				"description": "Generated from cURL: curl -X DELETE http://localhost:3000/disasters/<disaster-id> \\\n  -H \"x-mock-user: netrunnerX\""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/<disaster-id>/social-media",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/disasters/<disaster-id>/social-media",
+				"description": "Generated from cURL: curl -X GET http://localhost:3000/disasters/<disaster-id>/social-media"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/disasters/<disaster-id>/official-updates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/disasters/<disaster-id>/official-updates",
+				"description": "Generated from cURL: curl -X GET http://localhost:3000/disasters/<disaster-id>/official-updates"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://disasterresponse-nii1.onrender.com/",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
